@@ -317,6 +317,8 @@ class MapLocationPicker extends HookWidget {
       ),
     };
 
+    config.onMainMarkerLocationChange?.call(position);
+
     // Add additional markers
     if (config.additionalMarkers != null) {
       for (final entry in config.additionalMarkers!.entries) {
@@ -760,6 +762,7 @@ class MapLocationPickerConfig {
   final Function(MapType)? onMapTypeChanged;
   final Function(PlacesDetailsResponse?)? onSuggestionSelected;
   final Function(GeocodingResult?)? onNext;
+  final Function(LatLng?)? onMainMarkerLocationChange;
   final Function(GeocodingResult?)? onAddressDecoded;
   final Function(GeocodingResult)? onAddressSelected;
 
@@ -830,6 +833,7 @@ class MapLocationPickerConfig {
     this.onMapTypeChanged,
     this.onSuggestionSelected,
     this.onNext,
+    this.onMainMarkerLocationChange,
     this.onAddressDecoded,
     this.onAddressSelected,
     this.buildingsEnabled = true,
@@ -948,6 +952,7 @@ class MapLocationPickerConfig {
     Function(MapType)? onMapTypeChanged,
     Function(PlacesDetailsResponse?)? onSuggestionSelected,
     Function(GeocodingResult?)? onNext,
+    Function(LatLng?)? onMainMarkerLocationChange,
     Function(GeocodingResult?)? onAddressDecoded,
     Function(GeocodingResult)? onAddressSelected,
 
@@ -1025,6 +1030,8 @@ class MapLocationPickerConfig {
       onAddressDecoded: onAddressDecoded ?? this.onAddressDecoded,
       onAddressSelected: onAddressSelected ?? this.onAddressSelected,
       onNext: onNext ?? this.onNext,
+      onMainMarkerLocationChange:
+          onMainMarkerLocationChange ?? this.onMainMarkerLocationChange,
     );
   }
 }
