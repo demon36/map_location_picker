@@ -76,6 +76,7 @@ abstract class MapLocationPickerConfig with _$MapLocationPickerConfig {
     @Default(null) Function(MapType)? onMapTypeChanged,
     @Default(null) Function(Place?)? onSuggestionSelected,
     @Default(null) Function(GeocodingResult?)? onNext,
+    @Default(null) Function(LatLng?)? onMainMarkerLocationChange,
     @Default(null) Function(GeocodingResult?)? onAddressDecoded,
     @Default(null) Function(GeocodingResult)? onAddressSelected,
     @Default(true) bool buildingsEnabled,

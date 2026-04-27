@@ -60,6 +60,7 @@ mixin _$MapLocationPickerConfig {
   Function(MapType)? get onMapTypeChanged;
   Function(Place?)? get onSuggestionSelected;
   Function(GeocodingResult?)? get onNext;
+  Function(LatLng?)? get onMainMarkerLocationChange;
   Function(GeocodingResult?)? get onAddressDecoded;
   Function(GeocodingResult)? get onAddressSelected;
   bool get buildingsEnabled;
@@ -182,6 +183,7 @@ mixin _$MapLocationPickerConfig {
             (identical(other.onMapTypeChanged, onMapTypeChanged) || other.onMapTypeChanged == onMapTypeChanged) &&
             (identical(other.onSuggestionSelected, onSuggestionSelected) || other.onSuggestionSelected == onSuggestionSelected) &&
             (identical(other.onNext, onNext) || other.onNext == onNext) &&
+            (identical(other.onMainMarkerLocationChange, onMainMarkerLocationChange) || other.onMainMarkerLocationChange == onMainMarkerLocationChange) &&
             (identical(other.onAddressDecoded, onAddressDecoded) || other.onAddressDecoded == onAddressDecoded) &&
             (identical(other.onAddressSelected, onAddressSelected) || other.onAddressSelected == onAddressSelected) &&
             (identical(other.buildingsEnabled, buildingsEnabled) || other.buildingsEnabled == buildingsEnabled) &&
@@ -263,6 +265,7 @@ mixin _$MapLocationPickerConfig {
         onMapTypeChanged,
         onSuggestionSelected,
         onNext,
+        onMainMarkerLocationChange,
         onAddressDecoded,
         onAddressSelected,
         buildingsEnabled,
@@ -298,7 +301,7 @@ mixin _$MapLocationPickerConfig {
 
   @override
   String toString() {
-    return 'MapLocationPickerConfig(apiKey: $apiKey, language: $language, placesApi: $placesApi, geocodingHttpClient: $geocodingHttpClient, geocodingApiHeaders: $geocodingApiHeaders, geocodingBaseUrl: $geocodingBaseUrl, geocodingLocationType: $geocodingLocationType, geocodingResultType: $geocodingResultType, initialPosition: $initialPosition, initialZoom: $initialZoom, initialMapType: $initialMapType, myLocationButtonEnabled: $myLocationButtonEnabled, myLocationEnabled: $myLocationEnabled, zoomControlsEnabled: $zoomControlsEnabled, minMaxZoomPreference: $minMaxZoomPreference, onCameraMove: $onCameraMove, padding: $padding, compassEnabled: $compassEnabled, liteModeEnabled: $liteModeEnabled, mapStyle: $mapStyle, floatingControlsColor: $floatingControlsColor, floatingControlsIconColor: $floatingControlsIconColor, mapTypeIcon: $mapTypeIcon, locationIcon: $locationIcon, mainMarkerIcon: $mainMarkerIcon, hideBottomCardOnKeyboard: $hideBottomCardOnKeyboard, bottomCardTitle: $bottomCardTitle, bottomCardType: $bottomCardType, confirmButton: $confirmButton, bottomCardBuilder: $bottomCardBuilder, searchBarBuilder: $searchBarBuilder, locationSettings: $locationSettings, onLocationError: $onLocationError, hideMoreOptions: $hideMoreOptions, mapTypeButton: $mapTypeButton, locationButton: $locationButton, fabTooltip: $fabTooltip, additionalMarkers: $additionalMarkers, customMarkerIcons: $customMarkerIcons, customInfoWindows: $customInfoWindows, onMarkerTapped: $onMarkerTapped, onMapCreated: $onMapCreated, onMapTypeChanged: $onMapTypeChanged, onSuggestionSelected: $onSuggestionSelected, onNext: $onNext, onAddressDecoded: $onAddressDecoded, onAddressSelected: $onAddressSelected, buildingsEnabled: $buildingsEnabled, cameraTargetBounds: $cameraTargetBounds, circles: $circles, cloudMapId: $cloudMapId, fortyFiveDegreeImageryEnabled: $fortyFiveDegreeImageryEnabled, gestureRecognizers: $gestureRecognizers, indoorViewEnabled: $indoorViewEnabled, layoutDirection: $layoutDirection, mapToolbarEnabled: $mapToolbarEnabled, onCameraIdle: $onCameraIdle, onCameraMoveStarted: $onCameraMoveStarted, onLongPress: $onLongPress, polygons: $polygons, polylines: $polylines, rotateGesturesEnabled: $rotateGesturesEnabled, scrollGesturesEnabled: $scrollGesturesEnabled, tileOverlays: $tileOverlays, tiltGesturesEnabled: $tiltGesturesEnabled, trafficEnabled: $trafficEnabled, webGestureHandling: $webGestureHandling, zoomGesturesEnabled: $zoomGesturesEnabled, clusterManagers: $clusterManagers, groundOverlays: $groundOverlays, heatmaps: $heatmaps, cardType: $cardType, cardColor: $cardColor, cardRadius: $cardRadius, cardBorder: $cardBorder, noAddressFoundText: $noAddressFoundText)';
+    return 'MapLocationPickerConfig(apiKey: $apiKey, language: $language, placesApi: $placesApi, geocodingHttpClient: $geocodingHttpClient, geocodingApiHeaders: $geocodingApiHeaders, geocodingBaseUrl: $geocodingBaseUrl, geocodingLocationType: $geocodingLocationType, geocodingResultType: $geocodingResultType, initialPosition: $initialPosition, initialZoom: $initialZoom, initialMapType: $initialMapType, myLocationButtonEnabled: $myLocationButtonEnabled, myLocationEnabled: $myLocationEnabled, zoomControlsEnabled: $zoomControlsEnabled, minMaxZoomPreference: $minMaxZoomPreference, onCameraMove: $onCameraMove, padding: $padding, compassEnabled: $compassEnabled, liteModeEnabled: $liteModeEnabled, mapStyle: $mapStyle, floatingControlsColor: $floatingControlsColor, floatingControlsIconColor: $floatingControlsIconColor, mapTypeIcon: $mapTypeIcon, locationIcon: $locationIcon, mainMarkerIcon: $mainMarkerIcon, hideBottomCardOnKeyboard: $hideBottomCardOnKeyboard, bottomCardTitle: $bottomCardTitle, bottomCardType: $bottomCardType, confirmButton: $confirmButton, bottomCardBuilder: $bottomCardBuilder, searchBarBuilder: $searchBarBuilder, locationSettings: $locationSettings, onLocationError: $onLocationError, hideMoreOptions: $hideMoreOptions, mapTypeButton: $mapTypeButton, locationButton: $locationButton, fabTooltip: $fabTooltip, additionalMarkers: $additionalMarkers, customMarkerIcons: $customMarkerIcons, customInfoWindows: $customInfoWindows, onMarkerTapped: $onMarkerTapped, onMapCreated: $onMapCreated, onMapTypeChanged: $onMapTypeChanged, onSuggestionSelected: $onSuggestionSelected, onNext: $onNext, onMainMarkerLocationChange: $onMainMarkerLocationChange, onAddressDecoded: $onAddressDecoded, onAddressSelected: $onAddressSelected, buildingsEnabled: $buildingsEnabled, cameraTargetBounds: $cameraTargetBounds, circles: $circles, cloudMapId: $cloudMapId, fortyFiveDegreeImageryEnabled: $fortyFiveDegreeImageryEnabled, gestureRecognizers: $gestureRecognizers, indoorViewEnabled: $indoorViewEnabled, layoutDirection: $layoutDirection, mapToolbarEnabled: $mapToolbarEnabled, onCameraIdle: $onCameraIdle, onCameraMoveStarted: $onCameraMoveStarted, onLongPress: $onLongPress, polygons: $polygons, polylines: $polylines, rotateGesturesEnabled: $rotateGesturesEnabled, scrollGesturesEnabled: $scrollGesturesEnabled, tileOverlays: $tileOverlays, tiltGesturesEnabled: $tiltGesturesEnabled, trafficEnabled: $trafficEnabled, webGestureHandling: $webGestureHandling, zoomGesturesEnabled: $zoomGesturesEnabled, clusterManagers: $clusterManagers, groundOverlays: $groundOverlays, heatmaps: $heatmaps, cardType: $cardType, cardColor: $cardColor, cardRadius: $cardRadius, cardBorder: $cardBorder, noAddressFoundText: $noAddressFoundText)';
   }
 }
 
@@ -354,6 +357,7 @@ abstract mixin class $MapLocationPickerConfigCopyWith<$Res> {
       Function(MapType)? onMapTypeChanged,
       Function(Place?)? onSuggestionSelected,
       Function(GeocodingResult?)? onNext,
+      Function(LatLng?)? onMainMarkerLocationChange,
       Function(GeocodingResult?)? onAddressDecoded,
       Function(GeocodingResult)? onAddressSelected,
       bool buildingsEnabled,
@@ -445,6 +449,7 @@ class _$MapLocationPickerConfigCopyWithImpl<$Res>
     Object? onMapTypeChanged = freezed,
     Object? onSuggestionSelected = freezed,
     Object? onNext = freezed,
+    Object? onMainMarkerLocationChange = freezed,
     Object? onAddressDecoded = freezed,
     Object? onAddressSelected = freezed,
     Object? buildingsEnabled = null,
@@ -658,6 +663,10 @@ class _$MapLocationPickerConfigCopyWithImpl<$Res>
           ? _self.onNext
           : onNext // ignore: cast_nullable_to_non_nullable
               as Function(GeocodingResult?)?,
+      onMainMarkerLocationChange: freezed == onMainMarkerLocationChange
+          ? _self.onMainMarkerLocationChange
+          : onMainMarkerLocationChange // ignore: cast_nullable_to_non_nullable
+              as Function(LatLng?)?,
       onAddressDecoded: freezed == onAddressDecoded
           ? _self.onAddressDecoded
           : onAddressDecoded // ignore: cast_nullable_to_non_nullable
@@ -925,6 +934,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             Function(MapType)? onMapTypeChanged,
             Function(Place?)? onSuggestionSelected,
             Function(GeocodingResult?)? onNext,
+            Function(LatLng?)? onMainMarkerLocationChange,
             Function(GeocodingResult?)? onAddressDecoded,
             Function(GeocodingResult)? onAddressSelected,
             bool buildingsEnabled,
@@ -1008,6 +1018,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             _that.onMapTypeChanged,
             _that.onSuggestionSelected,
             _that.onNext,
+            _that.onMainMarkerLocationChange,
             _that.onAddressDecoded,
             _that.onAddressSelected,
             _that.buildingsEnabled,
@@ -1105,6 +1116,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             Function(MapType)? onMapTypeChanged,
             Function(Place?)? onSuggestionSelected,
             Function(GeocodingResult?)? onNext,
+            Function(LatLng?)? onMainMarkerLocationChange,
             Function(GeocodingResult?)? onAddressDecoded,
             Function(GeocodingResult)? onAddressSelected,
             bool buildingsEnabled,
@@ -1187,6 +1199,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             _that.onMapTypeChanged,
             _that.onSuggestionSelected,
             _that.onNext,
+            _that.onMainMarkerLocationChange,
             _that.onAddressDecoded,
             _that.onAddressSelected,
             _that.buildingsEnabled,
@@ -1283,6 +1296,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             Function(MapType)? onMapTypeChanged,
             Function(Place?)? onSuggestionSelected,
             Function(GeocodingResult?)? onNext,
+            Function(LatLng?)? onMainMarkerLocationChange,
             Function(GeocodingResult?)? onAddressDecoded,
             Function(GeocodingResult)? onAddressSelected,
             bool buildingsEnabled,
@@ -1365,6 +1379,7 @@ extension MapLocationPickerConfigPatterns on MapLocationPickerConfig {
             _that.onMapTypeChanged,
             _that.onSuggestionSelected,
             _that.onNext,
+            _that.onMainMarkerLocationChange,
             _that.onAddressDecoded,
             _that.onAddressSelected,
             _that.buildingsEnabled,
@@ -1451,6 +1466,7 @@ class _MapLocationPickerConfig implements MapLocationPickerConfig {
       this.onMapTypeChanged = null,
       this.onSuggestionSelected = null,
       this.onNext = null,
+      this.onMainMarkerLocationChange = null,
       this.onAddressDecoded = null,
       this.onAddressSelected = null,
       this.buildingsEnabled = true,
@@ -1699,6 +1715,9 @@ class _MapLocationPickerConfig implements MapLocationPickerConfig {
   final Function(GeocodingResult?)? onNext;
   @override
   @JsonKey()
+  final Function(LatLng?)? onMainMarkerLocationChange;
+  @override
+  @JsonKey()
   final Function(GeocodingResult?)? onAddressDecoded;
   @override
   @JsonKey()
@@ -1931,6 +1950,7 @@ class _MapLocationPickerConfig implements MapLocationPickerConfig {
             (identical(other.onMapTypeChanged, onMapTypeChanged) || other.onMapTypeChanged == onMapTypeChanged) &&
             (identical(other.onSuggestionSelected, onSuggestionSelected) || other.onSuggestionSelected == onSuggestionSelected) &&
             (identical(other.onNext, onNext) || other.onNext == onNext) &&
+            (identical(other.onMainMarkerLocationChange, onMainMarkerLocationChange) || other.onMainMarkerLocationChange == onMainMarkerLocationChange) &&
             (identical(other.onAddressDecoded, onAddressDecoded) || other.onAddressDecoded == onAddressDecoded) &&
             (identical(other.onAddressSelected, onAddressSelected) || other.onAddressSelected == onAddressSelected) &&
             (identical(other.buildingsEnabled, buildingsEnabled) || other.buildingsEnabled == buildingsEnabled) &&
@@ -2012,6 +2032,7 @@ class _MapLocationPickerConfig implements MapLocationPickerConfig {
         onMapTypeChanged,
         onSuggestionSelected,
         onNext,
+        onMainMarkerLocationChange,
         onAddressDecoded,
         onAddressSelected,
         buildingsEnabled,
@@ -2047,7 +2068,7 @@ class _MapLocationPickerConfig implements MapLocationPickerConfig {
 
   @override
   String toString() {
-    return 'MapLocationPickerConfig(apiKey: $apiKey, language: $language, placesApi: $placesApi, geocodingHttpClient: $geocodingHttpClient, geocodingApiHeaders: $geocodingApiHeaders, geocodingBaseUrl: $geocodingBaseUrl, geocodingLocationType: $geocodingLocationType, geocodingResultType: $geocodingResultType, initialPosition: $initialPosition, initialZoom: $initialZoom, initialMapType: $initialMapType, myLocationButtonEnabled: $myLocationButtonEnabled, myLocationEnabled: $myLocationEnabled, zoomControlsEnabled: $zoomControlsEnabled, minMaxZoomPreference: $minMaxZoomPreference, onCameraMove: $onCameraMove, padding: $padding, compassEnabled: $compassEnabled, liteModeEnabled: $liteModeEnabled, mapStyle: $mapStyle, floatingControlsColor: $floatingControlsColor, floatingControlsIconColor: $floatingControlsIconColor, mapTypeIcon: $mapTypeIcon, locationIcon: $locationIcon, mainMarkerIcon: $mainMarkerIcon, hideBottomCardOnKeyboard: $hideBottomCardOnKeyboard, bottomCardTitle: $bottomCardTitle, bottomCardType: $bottomCardType, confirmButton: $confirmButton, bottomCardBuilder: $bottomCardBuilder, searchBarBuilder: $searchBarBuilder, locationSettings: $locationSettings, onLocationError: $onLocationError, hideMoreOptions: $hideMoreOptions, mapTypeButton: $mapTypeButton, locationButton: $locationButton, fabTooltip: $fabTooltip, additionalMarkers: $additionalMarkers, customMarkerIcons: $customMarkerIcons, customInfoWindows: $customInfoWindows, onMarkerTapped: $onMarkerTapped, onMapCreated: $onMapCreated, onMapTypeChanged: $onMapTypeChanged, onSuggestionSelected: $onSuggestionSelected, onNext: $onNext, onAddressDecoded: $onAddressDecoded, onAddressSelected: $onAddressSelected, buildingsEnabled: $buildingsEnabled, cameraTargetBounds: $cameraTargetBounds, circles: $circles, cloudMapId: $cloudMapId, fortyFiveDegreeImageryEnabled: $fortyFiveDegreeImageryEnabled, gestureRecognizers: $gestureRecognizers, indoorViewEnabled: $indoorViewEnabled, layoutDirection: $layoutDirection, mapToolbarEnabled: $mapToolbarEnabled, onCameraIdle: $onCameraIdle, onCameraMoveStarted: $onCameraMoveStarted, onLongPress: $onLongPress, polygons: $polygons, polylines: $polylines, rotateGesturesEnabled: $rotateGesturesEnabled, scrollGesturesEnabled: $scrollGesturesEnabled, tileOverlays: $tileOverlays, tiltGesturesEnabled: $tiltGesturesEnabled, trafficEnabled: $trafficEnabled, webGestureHandling: $webGestureHandling, zoomGesturesEnabled: $zoomGesturesEnabled, clusterManagers: $clusterManagers, groundOverlays: $groundOverlays, heatmaps: $heatmaps, cardType: $cardType, cardColor: $cardColor, cardRadius: $cardRadius, cardBorder: $cardBorder, noAddressFoundText: $noAddressFoundText)';
+    return 'MapLocationPickerConfig(apiKey: $apiKey, language: $language, placesApi: $placesApi, geocodingHttpClient: $geocodingHttpClient, geocodingApiHeaders: $geocodingApiHeaders, geocodingBaseUrl: $geocodingBaseUrl, geocodingLocationType: $geocodingLocationType, geocodingResultType: $geocodingResultType, initialPosition: $initialPosition, initialZoom: $initialZoom, initialMapType: $initialMapType, myLocationButtonEnabled: $myLocationButtonEnabled, myLocationEnabled: $myLocationEnabled, zoomControlsEnabled: $zoomControlsEnabled, minMaxZoomPreference: $minMaxZoomPreference, onCameraMove: $onCameraMove, padding: $padding, compassEnabled: $compassEnabled, liteModeEnabled: $liteModeEnabled, mapStyle: $mapStyle, floatingControlsColor: $floatingControlsColor, floatingControlsIconColor: $floatingControlsIconColor, mapTypeIcon: $mapTypeIcon, locationIcon: $locationIcon, mainMarkerIcon: $mainMarkerIcon, hideBottomCardOnKeyboard: $hideBottomCardOnKeyboard, bottomCardTitle: $bottomCardTitle, bottomCardType: $bottomCardType, confirmButton: $confirmButton, bottomCardBuilder: $bottomCardBuilder, searchBarBuilder: $searchBarBuilder, locationSettings: $locationSettings, onLocationError: $onLocationError, hideMoreOptions: $hideMoreOptions, mapTypeButton: $mapTypeButton, locationButton: $locationButton, fabTooltip: $fabTooltip, additionalMarkers: $additionalMarkers, customMarkerIcons: $customMarkerIcons, customInfoWindows: $customInfoWindows, onMarkerTapped: $onMarkerTapped, onMapCreated: $onMapCreated, onMapTypeChanged: $onMapTypeChanged, onSuggestionSelected: $onSuggestionSelected, onNext: $onNext, onMainMarkerLocationChange: $onMainMarkerLocationChange, onAddressDecoded: $onAddressDecoded, onAddressSelected: $onAddressSelected, buildingsEnabled: $buildingsEnabled, cameraTargetBounds: $cameraTargetBounds, circles: $circles, cloudMapId: $cloudMapId, fortyFiveDegreeImageryEnabled: $fortyFiveDegreeImageryEnabled, gestureRecognizers: $gestureRecognizers, indoorViewEnabled: $indoorViewEnabled, layoutDirection: $layoutDirection, mapToolbarEnabled: $mapToolbarEnabled, onCameraIdle: $onCameraIdle, onCameraMoveStarted: $onCameraMoveStarted, onLongPress: $onLongPress, polygons: $polygons, polylines: $polylines, rotateGesturesEnabled: $rotateGesturesEnabled, scrollGesturesEnabled: $scrollGesturesEnabled, tileOverlays: $tileOverlays, tiltGesturesEnabled: $tiltGesturesEnabled, trafficEnabled: $trafficEnabled, webGestureHandling: $webGestureHandling, zoomGesturesEnabled: $zoomGesturesEnabled, clusterManagers: $clusterManagers, groundOverlays: $groundOverlays, heatmaps: $heatmaps, cardType: $cardType, cardColor: $cardColor, cardRadius: $cardRadius, cardBorder: $cardBorder, noAddressFoundText: $noAddressFoundText)';
   }
 }
 
@@ -2105,6 +2126,7 @@ abstract mixin class _$MapLocationPickerConfigCopyWith<$Res>
       Function(MapType)? onMapTypeChanged,
       Function(Place?)? onSuggestionSelected,
       Function(GeocodingResult?)? onNext,
+      Function(LatLng?)? onMainMarkerLocationChange,
       Function(GeocodingResult?)? onAddressDecoded,
       Function(GeocodingResult)? onAddressSelected,
       bool buildingsEnabled,
@@ -2196,6 +2218,7 @@ class __$MapLocationPickerConfigCopyWithImpl<$Res>
     Object? onMapTypeChanged = freezed,
     Object? onSuggestionSelected = freezed,
     Object? onNext = freezed,
+    Object? onMainMarkerLocationChange = freezed,
     Object? onAddressDecoded = freezed,
     Object? onAddressSelected = freezed,
     Object? buildingsEnabled = null,
@@ -2409,6 +2432,10 @@ class __$MapLocationPickerConfigCopyWithImpl<$Res>
           ? _self.onNext
           : onNext // ignore: cast_nullable_to_non_nullable
               as Function(GeocodingResult?)?,
+      onMainMarkerLocationChange: freezed == onMainMarkerLocationChange
+          ? _self.onMainMarkerLocationChange
+          : onMainMarkerLocationChange // ignore: cast_nullable_to_non_nullable
+              as Function(LatLng?)?,
       onAddressDecoded: freezed == onAddressDecoded
           ? _self.onAddressDecoded
           : onAddressDecoded // ignore: cast_nullable_to_non_nullable
